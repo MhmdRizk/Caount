@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_left">16dp</dimen>
+    <dimen name="margin_top">22dp</dimen>
+    <dimen name="spacing_between_elements">8dp</dimen>
+    <dimen name="element_min_height">48dp</dimen>
+</resources>
