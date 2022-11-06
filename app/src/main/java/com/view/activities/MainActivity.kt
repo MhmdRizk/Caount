@@ -26,15 +26,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-// RIZK:- used to replace fragment
-//    fun presentHomeFragment() {
-//        val fragmentManager = supportFragmentManager
-//        val fragmentTransaction = fragmentManager.beginTransaction()
-//        fragmentManager.commit {
-//            setReorderingAllowed(true)
-//            replace<HomeFragment>(R.id.fragment_container_view)
-//        }
-//    }
 
 
 }
