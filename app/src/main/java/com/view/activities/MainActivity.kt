@@ -7,7 +7,9 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import com.example.caount.R
+import com.view.fragments.HomeFragment
 import com.view.fragments.ProgressFragment
 
 class MainActivity : AppCompatActivity() {
@@ -18,10 +20,21 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<ProgressFragment>(R.id.fragment_container_view)
+                add<HomeFragment>(R.id.fragment_container_view)
 
             }
         }
     }
+
+// RIZK:- used to replace fragment
+//    fun presentHomeFragment() {
+//        val fragmentManager = supportFragmentManager
+//        val fragmentTransaction = fragmentManager.beginTransaction()
+//        fragmentManager.commit {
+//            setReorderingAllowed(true)
+//            replace<HomeFragment>(R.id.fragment_container_view)
+//        }
+//    }
+
 
 }

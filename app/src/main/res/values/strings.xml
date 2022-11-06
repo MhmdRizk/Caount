@@ -21,4 +21,7 @@
     <string name="meal_fat_hint">Enter meal or item fats per 100 grams</string>
 
     <string name="add_meal_button">Add meal or item ot DB</string>
+
+    <string name="progress">Progress</string>
+    <string name="add_meal">Add Meal</string>
 </resources>
