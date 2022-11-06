@@ -3,6 +3,9 @@
 *.ap_
 
 # Files for the ART/Dalvik VM
+*.lock
+
+# Files for the ART/Dalvik VM
 *.dex
 
 # Java class files
