@@ -3,6 +3,7 @@
 *.ap_
 
 # execution history
+.gradle/7.2/executionHistory
 executionHistory.lock
 *.lock
 
