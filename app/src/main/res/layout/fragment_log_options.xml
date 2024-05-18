@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- fragment_log_options.xml -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/baby_blue">
+
+    <!-- Log Item Button -->
+    <Button
+        android:id="@+id/btnLogItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Log Item"
+        android:textColor="#FFFFFF"
+        android:background="#98FB98"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="12dp"
+        android:radius="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Log Raw Calories Button -->
+    <Button
+        android:id="@+id/btnLogRawCalories"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Log Raw Calories"
+        android:textColor="#FFFFFF"
+        android:background="#98FB98"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="12dp"
+        android:radius="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogItem" />
+
+    <!-- Log Meal Button -->
+    <Button
+        android:id="@+id/btnLogMeal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Log Meal"
+        android:textColor="#FFFFFF"
+        android:background="#98FB98"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="12dp"
+        android:radius="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogRawCalories" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

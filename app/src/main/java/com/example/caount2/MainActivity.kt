@@ -1,25 +1,17 @@
 package com.example.caount2
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.caount2.ui.theme.Caount2Theme
+import com.example.caount2.foodlogging.FoodLoggingActivity
 import com.mikepenz.materialdrawer.model.DividerDrawerItem
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.nameRes
-import com.mikepenz.materialdrawer.model.interfaces.withIdentifier
-import com.mikepenz.materialdrawer.model.interfaces.withName
 import com.mikepenz.materialdrawer.widget.MaterialDrawerSliderView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,7 +31,8 @@ class MainActivity : AppCompatActivity() {
         slider.itemAdapter.add(
             home,
             DividerDrawerItem(),
-            settings)
+            settings
+        )
 
 
         slider.onDrawerItemClickListener = { v, drawerItem, position ->
@@ -52,6 +45,14 @@ class MainActivity : AppCompatActivity() {
         val sideMenuIcon: ImageView = findViewById(R.id.side_menu_icon)
         sideMenuIcon.setOnClickListener {
             slider.drawerLayout?.openDrawer(slider)
+        }
+
+
+        val addLogButton: Button = findViewById(R.id.add_button)
+        addLogButton.setOnClickListener {
+            val intent = Intent(this@MainActivity, FoodLoggingActivity::class.java)
+            startActivity(intent) // Start the NewActivity
+
         }
 
 
