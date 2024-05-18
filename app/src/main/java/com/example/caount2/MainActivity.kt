@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
+import androidx.room.Room.databaseBuilder
+import com.example.caount2.appdb.databseconfig.AppDatabase
 import com.example.caount2.foodlogging.FoodLoggingActivity
 import com.mikepenz.materialdrawer.model.DividerDrawerItem
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
@@ -15,9 +18,21 @@ import com.mikepenz.materialdrawer.widget.MaterialDrawerSliderView
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        lateinit var database: AppDatabase
+            private set
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        database = databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            "AppDatabase"
+        ).build()
+
         setContentView(R.layout.activity_main)
 
         val slider: MaterialDrawerSliderView = findViewById(R.id.slider);
