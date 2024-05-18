@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Caount2" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <style name="SampleApp.DayNight" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="materialDrawerStyle">@style/Widget.MaterialDrawerStyle</item>
+        <item name="materialDrawerHeaderStyle">@style/Widget.MaterialDrawerHeaderStyle</item>
+    </style>
+
+
+</resources>
