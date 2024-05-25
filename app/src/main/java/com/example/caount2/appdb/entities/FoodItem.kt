@@ -12,4 +12,8 @@ data class FoodItem(
     val carbs: Double,
     val proteins: Double,
     val calories: Double
-)
+) {
+    // Secondary constructor without id, Room will auto-generate the id
+    constructor(name: String, fats: Double, carbs: Double, proteins: Double, calories: Double) :
+            this(0L, name, fats, carbs, proteins, calories)
+}

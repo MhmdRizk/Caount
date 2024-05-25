@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Entity
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Transaction
 import com.example.caount2.appdb.entities.FoodItem
 
 
@@ -15,5 +16,11 @@ interface FoodItemDao {
 
     @Query("SELECT * FROM food_item")
     suspend fun getAllFoodItems(): List<FoodItem>
+
+    @Transaction
+    suspend fun insertFoodItem(name: String, calories: Double, protein: Double, fat: Double, carbs: Double) {
+        val foodItem = FoodItem(name, calories, protein, fat, carbs)
+        insert(foodItem)
+    }
 
 }

@@ -6,14 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/baby_blue">
 
+
     <!-- Log Item Button -->
     <Button
-        android:id="@+id/btnLogItem"
+        android:id="@+id/btnAddItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Log Item"
+        android:text="Add Item"
         android:textColor="#FFFFFF"
-        android:background="#98FB98"
+        android:background="@drawable/rounded_button_bg"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -23,6 +24,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Log Item Button -->
+    <Button
+        android:id="@+id/btnLogItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Log Item"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button_bg"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="12dp"
+        android:radius="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnAddItem"/>
+
     <!-- Log Raw Calories Button -->
     <Button
         android:id="@+id/btnLogRawCalories"
@@ -30,7 +48,7 @@
         android:layout_height="wrap_content"
         android:text="Log Raw Calories"
         android:textColor="#FFFFFF"
-        android:background="#98FB98"
+        android:background="@drawable/rounded_button_bg"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -40,14 +58,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnLogItem" />
 
+
     <!-- Log Meal Button -->
     <Button
-        android:id="@+id/btnLogMeal"
+        android:id="@+id/btnAddMeal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Log Meal"
+        android:text="Add Meal"
         android:textColor="#FFFFFF"
-        android:background="#98FB98"
+        android:background="@drawable/rounded_button_bg"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -56,5 +75,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnLogRawCalories" />
+
+    <!-- Log Meal Button -->
+    <Button
+        android:id="@+id/btnLogMeal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Log Meal"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button_bg"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="12dp"
+        android:radius="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnAddMeal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

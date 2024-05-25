@@ -18,9 +18,17 @@ class LogOptionsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_log_options, container, false)
         // Find buttons by ID
+        val btnAddItem = view.findViewById<Button>(R.id.btnAddItem)
         val btnLogItem = view.findViewById<Button>(R.id.btnLogItem)
         val btnLogRawCalories = view.findViewById<Button>(R.id.btnLogRawCalories)
+        val btnAddMeal = view.findViewById<Button>(R.id.btnAddMeal)
         val btnLogMeal = view.findViewById<Button>(R.id.btnLogMeal)
+
+
+        // Set onClickListener for btnLogItem
+        btnAddItem.setOnClickListener {
+            println("tapped add item")
+        }
 
         // Set onClickListener for btnLogItem
         btnLogItem.setOnClickListener {
@@ -30,6 +38,12 @@ class LogOptionsFragment : Fragment() {
         // Set onClickListener for btnLogRawCalories
         btnLogRawCalories.setOnClickListener {
             println("tapped log raw")
+
+        }
+
+        // Set onClickListener for btnLogMeal
+        btnAddMeal.setOnClickListener {
+            println("tapped add meal")
 
         }
 
