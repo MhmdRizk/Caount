@@ -6,17 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.example.caount2.R
+import com.example.caount2.appdb.databseconfig.AppDatabase
+import kotlinx.coroutines.launch
+import java.util.Date
 
 class LogRawCaloriesFragment : Fragment() {
 
 
-    private lateinit var textViewCalories: TextView
-    private lateinit var textViewProteins: TextView
-    private lateinit var textViewCarbs: TextView
-    private lateinit var textViewFats: TextView
+    private lateinit var editTextCalories: EditText
+    private lateinit var editTextProteins: EditText
+    private lateinit var editTextCarbs: EditText
+    private lateinit var editTextFats: EditText
     private lateinit var btnLogRawCalories: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,16 +36,26 @@ class LogRawCaloriesFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_log_raw_calories, container, false)
 
         // Initialize views
-        textViewCalories = view.findViewById(R.id.textViewCalories)
-        textViewProteins = view.findViewById(R.id.textViewProteins)
-        textViewCarbs = view.findViewById(R.id.textViewCarbs)
-        textViewFats = view.findViewById(R.id.textViewFats)
+        editTextCalories = view.findViewById(R.id.editTextCalories)
+        editTextProteins = view.findViewById(R.id.editTextProteins)
+        editTextCarbs = view.findViewById(R.id.editTextCarbs)
+        editTextFats = view.findViewById(R.id.editTextFats)
         btnLogRawCalories = view.findViewById(R.id.btnLogRawCalories)
 
         // Set up button click listener
         btnLogRawCalories.setOnClickListener {
             if (validateFields()) {
-                println("RIZK:- add log here")
+                AppDatabase.getDatabase(requireContext()).consumedFoodEntryDao().also {
+                    lifecycleScope.launch {
+                        it.insertConsumedEntry(
+                            editTextCalories.text.toString().toDouble(),
+                            editTextProteins.text.toString().toDouble(),
+                            editTextFats.text.toString().toDouble(),
+                            editTextCarbs.text.toString().toDouble(),
+                            Date()
+                        )
+                    }
+                }
             }
         }
 
@@ -50,10 +65,10 @@ class LogRawCaloriesFragment : Fragment() {
     }
 
     private fun validateFields(): Boolean {
-        val textCalories = textViewCalories.text.toString()
-        val textProteins = textViewProteins.text.toString()
-        val textCarbs = textViewCarbs.text.toString()
-        val textFats = textViewFats.text.toString()
+        val textCalories = editTextCalories.text.toString()
+        val textProteins = editTextProteins.text.toString()
+        val textCarbs = editTextCarbs.text.toString()
+        val textFats = editTextFats.text.toString()
 
         if (textCalories.isEmpty() || textProteins.isEmpty() || textCarbs.isEmpty() || textFats.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
