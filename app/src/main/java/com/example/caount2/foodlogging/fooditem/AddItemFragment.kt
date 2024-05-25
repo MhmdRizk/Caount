@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.example.caount2.R
 import com.example.caount2.appdb.daos.FoodItemDao
@@ -18,11 +20,11 @@ import kotlinx.coroutines.launch
 class AddItemFragment() : Fragment() {
 
 
-    private lateinit var textViewItemName: TextView
-    private lateinit var textViewItemCalories: TextView
-    private lateinit var textViewItemProtein: TextView
-    private lateinit var textViewItemFat: TextView
-    private lateinit var textViewItemCarbs: TextView
+    private lateinit var editTextItemName: EditText
+    private lateinit var editTextItemCalories: EditText
+    private lateinit var editTextItemProtein: EditText
+    private lateinit var editTextItemFat: EditText
+    private lateinit var editTextItemCarbs: EditText
     private lateinit var buttonAddItem: Button
 
     private var itemName: String = ""
@@ -43,35 +45,34 @@ class AddItemFragment() : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_add_item, container, false);
 
-        // Initialize views
-        textViewItemName = view.findViewById(R.id.textViewItemName)
-        textViewItemCalories = view.findViewById(R.id.textViewItemCalories)
-        textViewItemProtein = view.findViewById(R.id.textViewItemProtein)
-        textViewItemFat = view.findViewById(R.id.textViewItemFat)
-        textViewItemCarbs = view.findViewById(R.id.textViewItemCarbs)
+// Initialize views
+        editTextItemName = view.findViewById(R.id.editTextItemName)
+        editTextItemCalories = view.findViewById(R.id.editTextItemCalories)
+        editTextItemProtein = view.findViewById(R.id.editTextItemProtein)
+        editTextItemFat = view.findViewById(R.id.editTextItemFat)
+        editTextItemCarbs = view.findViewById(R.id.editTextItemCarbs)
         buttonAddItem = view.findViewById(R.id.buttonAddItem)
 
 
-        // Set onClickListener for TextViews
-        textViewItemName.setOnClickListener {
-            println("TextView Item Name clicked")
-            itemName = textViewItemName.text.toString()
+        // Set TextChangedListener for EditTexts
+        editTextItemName.addTextChangedListener {
+            itemName = it.toString()
         }
-        textViewItemCalories.setOnClickListener {
-            println("TextView Item Calories clicked")
-            itemCalories = textViewItemCalories.text.toString()
+
+        editTextItemCalories.addTextChangedListener {
+            itemCalories = it.toString()
         }
-        textViewItemProtein.setOnClickListener {
-            println("TextView Item Protein clicked")
-            itemProtein = textViewItemProtein.text.toString()
+
+        editTextItemProtein.addTextChangedListener {
+            itemProtein = it.toString()
         }
-        textViewItemFat.setOnClickListener {
-            println("TextView Item Fat clicked")
-            itemFat = textViewItemFat.text.toString()
+
+        editTextItemFat.addTextChangedListener {
+            itemFat = it.toString()
         }
-        textViewItemCarbs.setOnClickListener {
-            println("TextView Item Carbs clicked")
-            itemCarbs = textViewItemCarbs.text.toString()
+
+        editTextItemCarbs.addTextChangedListener {
+            itemCarbs = it.toString()
         }
 
         // Set onClickListener for Add Item Button

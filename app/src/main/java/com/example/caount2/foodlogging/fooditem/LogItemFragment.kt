@@ -1,16 +1,20 @@
 package com.example.caount2.foodlogging.fooditem
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.caount2.R
 import com.example.caount2.appdb.databseconfig.AppDatabase
 import kotlinx.coroutines.launch
+import java.util.Date
 
 class LogItemFragment : Fragment() {
 
@@ -30,6 +34,10 @@ class LogItemFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_log_item, container, false)
 
 
+        // Initialize the RecyclerView
+        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
 
         AppDatabase.getDatabase(requireContext()).also {
             lifecycleScope.launch {
@@ -43,24 +51,57 @@ class LogItemFragment : Fragment() {
                             foodItem.carbs
                         )
                     }
+                    foodItemAdapter = FoodItemAdapter(foodItemList) { foodItemCell ->
+                        onFoodItemClicked(foodItemCell)
+                    }
+                    recyclerView.adapter = foodItemAdapter
+                    foodItemAdapter.notifyDataSetChanged()
                 }
             }
         }
-
-
-        // Initialize the RecyclerView
-        recyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        foodItemAdapter = FoodItemAdapter(foodItemList) { foodItemCell ->
-            onFoodItemClicked(foodItemCell)
-        }
-        recyclerView.adapter = foodItemAdapter
 
 
         return view
     }
 
     private fun onFoodItemClicked(foodItem: FoodItemCell) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Enter amount")
+        builder.setMessage("Please enter amount consumed in grams:")
+        val input = EditText(context)
+        builder.setView(input)
+        builder.setPositiveButton("OK") { dialog, which ->
+            val userInput = input.text.toString()
+            val parsedInput = userInput.toDoubleOrNull()
+            if (parsedInput != null) {
+                val caloriesConsumed = parsedInput * foodItem.calories / 100
+                val proteinsConsumed = parsedInput * foodItem.protein / 100
+                val carbsConsumed = parsedInput * foodItem.carbs / 100
+                val fatsConsumed = parsedInput * foodItem.fat / 100
+
+                AppDatabase.getDatabase(requireContext()).consumedFoodEntryDao().also {
+                    lifecycleScope.launch {
+                        it.insertConsumedEntry(
+                            caloriesConsumed, proteinsConsumed, fatsConsumed, carbsConsumed,
+                            Date()
+                        )
+                    }
+                }
+
+            } else {
+                // Input is not a valid double
+                Toast.makeText(context, "Please enter a valid number", Toast.LENGTH_SHORT).show()
+                // Optionally, you can keep the dialog open or dismiss it based on your requirements
+            }
+
+        }
+
+        builder.setNegativeButton("Cancel") { dialog, which ->
+            // Cancel action, if needed
+        }
+
+        val dialog = builder.create()
+        dialog.show()
 
     }
 

@@ -7,9 +7,9 @@
     android:background="@color/baby_blue"
     tools:context=".foodlogging.fooditem.LogItemFragment">
 
-    <!-- Item Name TextView -->
-    <TextView
-        android:id="@+id/textViewItemName"
+    <!-- Item Name EditText -->
+    <EditText
+        android:id="@+id/editTextItemName"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -17,16 +17,17 @@
         android:layout_marginEnd="16dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
-        android:text="Item name"
+        android:hint="Item name"
         android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
-    <!-- Item Calories TextView -->
-    <TextView
-        android:id="@+id/textViewItemCalories"
+    <!-- Item Calories EditText -->
+    <EditText
+        android:id="@+id/editTextItemCalories"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -34,16 +35,17 @@
         android:layout_marginEnd="16dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
-        android:text="Item calories"
+        android:hint="Item calories"
         android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewItemName"
+        app:layout_constraintTop_toBottomOf="@id/editTextItemName"
         tools:ignore="HardcodedText" />
 
-    <!-- Item Protein TextView -->
-    <TextView
-        android:id="@+id/textViewItemProtein"
+    <!-- Item Protein EditText -->
+    <EditText
+        android:id="@+id/editTextItemProtein"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -51,16 +53,17 @@
         android:layout_marginEnd="16dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
-        android:text="Item protein"
+        android:hint="Item protein"
         android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewItemCalories"
+        app:layout_constraintTop_toBottomOf="@id/editTextItemCalories"
         tools:ignore="HardcodedText" />
 
-    <!-- Item Fat TextView -->
-    <TextView
-        android:id="@+id/textViewItemFat"
+    <!-- Item Fat EditText -->
+    <EditText
+        android:id="@+id/editTextItemFat"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -68,17 +71,17 @@
         android:layout_marginEnd="16dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
-        android:text="Item fat"
-
+        android:hint="Item fat"
         android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewItemProtein"
+        app:layout_constraintTop_toBottomOf="@id/editTextItemProtein"
         tools:ignore="HardcodedText" />
 
-    <!-- Item Carbs TextView -->
-    <TextView
-        android:id="@+id/textViewItemCarbs"
+    <!-- Item Carbs EditText -->
+    <EditText
+        android:id="@+id/editTextItemCarbs"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -86,12 +89,12 @@
         android:layout_marginEnd="16dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
-        android:text="Item carbs"
+        android:hint="Item carbs"
         android:textColor="@android:color/black"
-
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewItemFat"
+        app:layout_constraintTop_toBottomOf="@id/editTextItemFat"
         tools:ignore="HardcodedText" />
 
     <!-- Add Item Button -->
@@ -104,10 +107,9 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_button_bg"
         android:text="Add item"
-
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewItemCarbs" />
+        app:layout_constraintTop_toBottomOf="@id/editTextItemCarbs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
