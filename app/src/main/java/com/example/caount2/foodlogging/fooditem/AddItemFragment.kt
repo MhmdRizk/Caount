@@ -15,7 +15,7 @@ import com.example.caount2.appdb.databseconfig.AppDatabase
 import kotlinx.coroutines.launch
 
 
-class AddItemFragment(private val foodItemDao: FoodItemDao) : Fragment() {
+class AddItemFragment() : Fragment() {
 
 
     private lateinit var textViewItemName: TextView

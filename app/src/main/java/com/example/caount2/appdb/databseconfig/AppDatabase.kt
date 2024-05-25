@@ -5,12 +5,18 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.caount2.appdb.daos.ConsumedFoodEntryDao
 import com.example.caount2.appdb.daos.FoodItemDao
+import com.example.caount2.appdb.entities.ConsumedFoodEntry
 import com.example.caount2.appdb.entities.FoodItem
+import com.example.caount2.appdb.helpers.DateConverter
 
-@Database(entities = [FoodItem::class], version = 1, exportSchema = false)
+@Database(entities = [FoodItem::class, ConsumedFoodEntry::class], version = 1, exportSchema = false)
+@TypeConverters(DateConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun foodItemDao(): FoodItemDao
+    abstract fun consumedFoodEntryDao(): ConsumedFoodEntryDao
 
 
 
