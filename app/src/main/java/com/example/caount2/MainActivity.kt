@@ -5,10 +5,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
 import androidx.room.Room.databaseBuilder
 import com.example.caount2.appdb.databseconfig.AppDatabase
-import com.example.caount2.foodlogging.FoodLoggingActivity
+import com.example.caount2.foodlogging.parent.FoodLoggingActivity
 import com.mikepenz.materialdrawer.model.DividerDrawerItem
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem

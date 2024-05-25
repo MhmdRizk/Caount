@@ -1,4 +1,4 @@
-package com.example.caount2.foodlogging
+package com.example.caount2.foodlogging.parent
 
 import android.os.Bundle
 import android.view.LayoutInflater

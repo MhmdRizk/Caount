@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".foodlogging.FoodLoggingActivity">
+        <activity android:name=".foodlogging.parent.FoodLoggingActivity">
             <!-- Add any additional attributes if necessary -->
         </activity>
     </application>
