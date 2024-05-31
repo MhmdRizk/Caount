@@ -13,7 +13,10 @@ import androidx.lifecycle.lifecycleScope
 import com.example.caount2.R
 import com.example.caount2.appdb.databseconfig.AppDatabase
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
+import java.util.Locale
 
 class LogRawCaloriesFragment : Fragment() {
 
@@ -27,6 +30,12 @@ class LogRawCaloriesFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+    }
+
+    fun getCurrentDateFormatted(): String {
+        val calendar = Calendar.getInstance()
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        return dateFormat.format(calendar.time)
     }
 
     override fun onCreateView(
@@ -52,7 +61,7 @@ class LogRawCaloriesFragment : Fragment() {
                             editTextProteins.text.toString().toDouble(),
                             editTextFats.text.toString().toDouble(),
                             editTextCarbs.text.toString().toDouble(),
-                            Date()
+                            Date(),getCurrentDateFormatted()
                         )
                     }
                 }

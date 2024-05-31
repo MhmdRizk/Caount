@@ -14,7 +14,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.caount2.R
 import com.example.caount2.appdb.databseconfig.AppDatabase
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
+import java.util.Locale
 
 class LogItemFragment : Fragment() {
 
@@ -64,6 +67,12 @@ class LogItemFragment : Fragment() {
         return view
     }
 
+    fun getCurrentDateFormatted(): String {
+        val calendar = Calendar.getInstance()
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        return dateFormat.format(calendar.time)
+    }
+
     private fun onFoodItemClicked(foodItem: FoodItemCell) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Enter amount")
@@ -83,7 +92,8 @@ class LogItemFragment : Fragment() {
                     lifecycleScope.launch {
                         it.insertConsumedEntry(
                             caloriesConsumed, proteinsConsumed, fatsConsumed, carbsConsumed,
-                            Date()
+                            Date(),
+                            getCurrentDateFormatted()
                         )
                     }
                 }

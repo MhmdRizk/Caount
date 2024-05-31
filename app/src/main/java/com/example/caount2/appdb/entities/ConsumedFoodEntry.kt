@@ -13,11 +13,12 @@ data class ConsumedFoodEntry(
     val carbs: Double,
     val proteins: Double,
     val calories: Double,
-    val date: Date
+    val date: Date,
+    val dateString: String
 ) {
     // Secondary constructor without id, Room will auto-generate the id
-    constructor(fats: Double, carbs: Double, proteins: Double, calories: Double, date: Date) :
-            this(0L, fats, carbs, proteins, calories, date)
+    constructor(fats: Double, carbs: Double, proteins: Double, calories: Double, date: Date,dateString: String) :
+            this(0L, fats, carbs, proteins, calories, date, dateString)
 
 
 }
