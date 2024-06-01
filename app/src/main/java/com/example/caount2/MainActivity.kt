@@ -53,32 +53,32 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val slider: MaterialDrawerSliderView = findViewById(R.id.slider);
-
-        val home = PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_home; identifier = 1 }
-        val settings =
-            SecondaryDrawerItem().apply { nameRes = R.string.drawer_item_settings; identifier = 2 }
-
-
-
-        slider.itemAdapter.add(
-            home,
-            DividerDrawerItem(),
-            settings
-        )
+//        val slider: MaterialDrawerSliderView = findViewById(R.id.slider);
+//
+//        val home = PrimaryDrawerItem().apply { nameRes = R.string.drawer_item_home; identifier = 1 }
+//        val settings =
+//            SecondaryDrawerItem().apply { nameRes = R.string.drawer_item_settings; identifier = 2 }
 
 
-        slider.onDrawerItemClickListener = { v, drawerItem, position ->
-            // do something with the clicked item :D
-            println("Rizk:- tapped on drawer")
-            false
-        }
+//
+//        slider.itemAdapter.add(
+//            home,
+//            DividerDrawerItem(),
+//            settings
+//        )
 
+//
+//        slider.onDrawerItemClickListener = { v, drawerItem, position ->
+//            // do something with the clicked item :D
+//            println("Rizk:- tapped on drawer")
+//            false
+//        }
 
-        val sideMenuIcon: ImageView = findViewById(R.id.side_menu_icon)
-        sideMenuIcon.setOnClickListener {
-            slider.drawerLayout?.openDrawer(slider)
-        }
+//
+//        val sideMenuIcon: ImageView = findViewById(R.id.side_menu_icon)
+//        sideMenuIcon.setOnClickListener {
+//            slider.drawerLayout?.openDrawer(slider)
+//        }
 
 
         val addLogButton: Button = findViewById(R.id.add_button)
