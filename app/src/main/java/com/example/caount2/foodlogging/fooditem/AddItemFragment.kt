@@ -1,18 +1,17 @@
 package com.example.caount2.foodlogging.fooditem
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.lifecycleScope
 import com.example.caount2.R
-import com.example.caount2.appdb.daos.FoodItemDao
 import com.example.caount2.appdb.databseconfig.AppDatabase
 import kotlinx.coroutines.launch
 
@@ -90,6 +89,10 @@ class AddItemFragment() : Fragment() {
                             carbs = itemCarbs.toDouble()
                         )
                     }
+
+                    Toast.makeText(requireContext(), "Item added successfully", Toast.LENGTH_SHORT)
+                        .show()
+                    activity?.finish()
                 }
             }
         }

@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
 
                     }
 
-                    yourCalorieIntake.text = "you consumed " + calories.toInt().toString() + " till now"
+                    yourCalorieIntake.text = "you consumed \n" + calories.toInt().toString() + " Calories till now"
                     yourFatIntake.text = "Fats: " + fats.toInt().toString() + "g"
                     yourProteinIntake.text = "Proteins: " + proteins.toInt().toString() + "g"
                     yourCarbsIntake.text = "Carbs: " + carbs.toInt().toString() + "g"

@@ -63,6 +63,10 @@ class LogRawCaloriesFragment : Fragment() {
                             editTextCarbs.text.toString().toDouble(),
                             Date(),getCurrentDateFormatted()
                         )
+                        Toast.makeText(requireContext(), "Raw calories logged successfully", Toast.LENGTH_SHORT)
+                            .show()
+
+                        activity?.finish()
                     }
                 }
             }

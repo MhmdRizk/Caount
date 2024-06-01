@@ -95,6 +95,10 @@ class LogItemFragment : Fragment() {
                             Date(),
                             getCurrentDateFormatted()
                         )
+
+                        Toast.makeText(requireContext(), "Item logged successfully", Toast.LENGTH_SHORT)
+                            .show()
+                        activity?.finish()
                     }
                 }
 

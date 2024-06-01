@@ -19,7 +19,7 @@ interface FoodItemDao {
 
     @Transaction
     suspend fun insertFoodItem(name: String, calories: Double, protein: Double, fat: Double, carbs: Double) {
-        val foodItem = FoodItem(name, calories, protein, fat, carbs)
+        val foodItem = FoodItem(name, fat, carbs, protein, calories)
         insert(foodItem)
     }
 
